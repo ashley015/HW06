@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<!-- 宣告使用 HTML5；DOCTYPE 是文件類型宣告，不需要結束標籤。 -->
+<html lang="zh-Hant">
+<!-- html 包住整份文件；lang="zh-Hant" 表示主要使用繁體中文。 -->
+<head>
+    <!-- head 放網頁資訊；這些資訊不會直接成為頁面中的報導文字。 -->
+    <meta charset="UTF-8">
+    <!-- UTF-8 可正確處理中文；meta 是空元素，不寫結束標籤。 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- viewport 讓行動裝置使用裝置寬度 -->
+    <meta name="description" content="走進台中第二市場，認識百年歷史、六角樓建築與傳統美食，透過景點清單、有框表格、照片、影片與 Google 地圖閱讀舊城故事。">
+    <!-- description 提供網頁摘要；author 標示作者。 -->
+    <meta name="author" content="陳佳儀">
+    <!-- robots 表達索引意圖 -->
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph 提供分享摘要 -->
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:title" content="台中第二市場報導｜舊城裡的市場">
+    <meta property="og:description" content="認識台中第二市場的百年歷史、放射狀六角樓與在地美食，搭配景點表格、照片、影片及位置地圖。">
+    <meta property="og:image" content="https://travel.taichung.gov.tw/content/images/attractions/70/640x480_attractions-image-N4bK0R2b8.jpg">
+    <meta property="og:image:alt" content="台中第二市場六角樓">
+    <meta property="article:published_time" content="2026-10-07">
+    <meta property="article:modified_time" content="2026-10-15">
+    <title>台中第二市場報導｜HW06 CSS 樣式練習</title>
+
+    <style>
+        /* 1. 盒子尺寸與全頁文字：border-box 讓寬度包含內距與框線。 */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 32px 24px;
+            font-family: "Microsoft JhengHei", "PingFang TC", sans-serif;
+            font-size: 17px;
+            line-height: 1.85;
+            color: #263d35;
+            background-color: #f2f4ed;
+        }
+
+        /* 2. 頁首：背景、框線、圓角與內距共同建立報導的視覺層次。 */
+        header {
+            padding: 34px 36px;
+            background-color: #173f35;
+            color: #fffdf5;
+            border-top: 6px solid #c89d56;
+            border-radius: 6px;
+        }
+
+        h1 {
+            margin: 0 0 16px;
+            font-size: 2rem;
+            line-height: 1.4;
+            letter-spacing: 0.04em;
+        }
+
+        header p {
+            margin: 10px 0;
+        }
+
+        small {
+            font-size: 0.85em;
+            font-style: normal;
+        }
+
+        /* 3. 導覽與連結：inline-block 讓連結可設定完整的點選內距。 */
+        nav {
+            margin: 24px 0;
+            padding: 20px 24px;
+            background-color: #e6ecdf;
+            border: 1px solid #cbd5c4;
+            border-radius: 6px;
+        }
+
+        nav h2 {
+            margin-top: 0;
+            padding: 0;
+            border: 0;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 4px 6px 4px 0;
+        }
+
+        nav a {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: #fffdf8;
+            border: 1px solid #cbd5c4;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        a {
+            color: #245c49;
+            text-underline-offset: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        a:hover {
+            color: #784d1b;
+            text-decoration: underline;
+        }
+
+        a:focus-visible, summary:focus-visible {
+            outline: 3px solid #b37d38;
+            outline-offset: 4px;
+        }
+
+        /* 4. 文章章節與盒子模型 */
+        section, aside {
+            margin: 24px 0;
+            padding: 24px 28px;
+            background-color: #fffdf8;
+            border: 1px solid #d9dfd2;
+            border-radius: 6px;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            padding-left: 12px;
+            border-left: 4px solid #54765d;
+            font-size: 1.4rem;
+            line-height: 1.5;
+        }
+
+        h3 {
+            margin: 22px 0 10px;
+            font-size: 1.1rem;
+        }
+
+        p {
+            margin: 12px 0;
+        }
+
+        ul, ol {
+            padding-left: 1.6em;
+        }
+
+        li {
+            margin: 8px 0;
+        }
+
+        hr {
+            margin: 26px 0;
+            border: 0;
+            border-top: 1px solid #ccd5c6;
+        }
+
+        /* 5. 表格：以 CSS 框線取代舊式 border 屬性 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+            overflow-wrap: anywhere;
+        }
+
+        caption {
+            margin-bottom: 12px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #becdbb;
+            text-align: left;
+            vertical-align: top;
+        }
+
+        thead {
+            background-color: #e1e9db;
+        }
+
+        tbody th {
+            background-color: #f0f3e9;
+        }
+
+        /* 6. 圖片與嵌入媒體 */
+        figure {
+            margin: 18px 0;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        figcaption {
+            margin-top: 10px;
+            color: #536359;
+            font-size: 0.85em;
+        }
+
+        iframe {
+            display: block;
+            max-width: 100%;
+            border: 0;
+            border-radius: 4px;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 16 / 9;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 340px;
+        }
+
+        #tips {
+            background-color: #edf0dd;
+            border-left: 5px solid #8b9459;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        footer {
+            margin-top: 32px;
+            padding: 20px 0;
+            border-top: 2px solid #54765d;
+            color: #536359;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 16px 12px;
+                font-size: 16px;
+            }
+
+            header, nav, section, aside {
+                padding: 20px 16px;
+            }
+
+            h1 {
+                font-size: 1.65rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- header 是頁首；id="top" 是下方「回到頁首」連結的目的地。 -->
+    <header id="top">
+        <h1>第二市場：舊城裡的市場</h1>
+        <p><small>舊城走廊 · 百年市場 · 在地美食</small></p>
+        <p><strong>從逛街品嚐美食之際，別忘了抬頭看看市場內歷史悠久的屋頂、或是街角的樓梯。</strong></p>
+        <!-- mark 標示本篇閱讀焦點 -->
+        <p>本期焦點：<mark style="background-color: #f6df9d; color: #3e351c; padding: 2px 6px;">百年歷史與六角樓建築</mark>，從美食報導延伸到位置地圖。</p>
+        <!-- time 的 datetime 以標準日期格式提供機器可讀的日期。 -->
+        <p>作者：陳佳儀｜報導整理日期：<time datetime="2026-10-15">2026 年 10 月 15 日</time></p>
+        <p><small style="font-style: italic;">本文為資料整理型教學報導，非現場採訪紀錄。</small></p>
+    </header>
+
+    <!-- nav 表示導覽區；href="#名稱" 會跳到本頁相同 id 的元素。 -->
+    <nav aria-label="報導目錄">
+        <h2>報導目錄</h2>
+        <ul>
+            <li><a href="#intro">市場簡介</a></li>
+            <li><a href="#highlights">美食特色與散步順序</a></li>
+            <li><a href="#table">市場比較表</a></li>
+            <li><a href="#photo">六角樓照片</a></li>
+            <li><a href="#video">影音報導</a></li>
+            <li><a href="#map">位置地圖</a></li>
+            <li><a href="#tips">走讀小提醒</a></li>
+            <li><a href="#sources">資料來源</a></li>
+        </ul>
+    </nav>
+
+    <!-- hr 表示內容主題的分隔 -->
+    <hr>
+
+    <!-- main 包住本頁主要內容；article 表示可獨立閱讀的完整報導。 -->
+    <main id="main-content">
+        <article aria-label="第二市場專題報導">
+            <section id="intro">
+                <h2>一、市場簡介</h2>
+                <p>
+                    臺中市公有第二零售市場位於中區三民路與台灣大道的交會處。這裡最特別的地方在於內部採用六角形的放射狀通道設計，
+                    所有路徑都會匯集到中心的<strong>六角樓</strong>。
+                </p>
+                <p>
+                    第二市場已有超過百年的歷史，早期在日治時期稱為新富町市場，經過臺中市政府的整修與維護，
+                    這座百年市場至今仍維持著整潔且充滿活力的面貌。
+                </p>
+                <p>市場地址：台中市中區三民路。<br>閱讀重點：百年歷史與舊市場建築。</p>
+            </section>
+
+            <hr>
+            <section id="highlights">
+                <h2>二、美食特色與散步順序</h2>
+                <h3>值得留意的三間美食</h3>
+                <ul>
+                    <li><strong>山河魯肉飯：</strong>大大塊厚實的魯肉飯、爌肉飯與腿庫飯，營業至下午三點，是早餐與午餐的熱門選擇。</li>
+                    <li><strong>老賴紅茶：</strong>創立超過一甲子的古早味飲品店，招牌紅茶與豆漿紅茶解膩又好喝。</li>
+                    <li><strong>三代福州意麵老店：</strong>百年字號的古早味麵攤，招牌意麵搭配魚丸湯，滋味簡單耐吃。</li>
+                </ul>
+
+                <h3>建議散步順序</h3>
+                <p style="border-left: 4px solid #b37d38; padding-left: 14px;">以下是本報導規劃的散步建議，並非官方指定路線。</p>
+                <ol>
+                    <li>抵達三民路與台灣大道交會處，先觀察第二市場的整體外觀與街景。</li>
+                    <li>走入市場內，體驗放射狀通道並尋找核心的六角樓。</li>
+                    <li>依序品嚐山河魯肉飯、老賴紅茶或三代福州意麵等在地美食。</li>
+                    <li>在市場角落欣賞歷史悠久的屋頂結構與樓梯，感受舊城風華。</li>
+                </ol>
+            </section>
+
+            <hr>
+            <section id="table">
+                <h2>三、市場比較表</h2>
+                <table>
+                    <caption>台中市場差異化</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">市場</th>
+                            <th scope="col">優勢</th>
+                            <th scope="col">創立時間</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">第二市場</th>
+                            <td>建築特色、地理位置</td>
+                            <td>1917</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">東協廣場</th>
+                            <td>多元文化、車站旁</td>
+                            <td>1908</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">第四市場</th>
+                            <td>新舊交融</td>
+                            <td>1932</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <hr>
+            <section id="photo">
+                <h2>四、六角樓照片</h2>
+                <figure>
+                    <img
+                        src="https://travel.taichung.gov.tw/content/images/attractions/70/640x480_attractions-image-N4bK0R2b8.jpg"
+                        alt="台中第二市場"
+                        width="480">
+                    <figcaption>
+                        第二市場外觀為六角樓。
+                        圖片來源：<a href="https://www.economic.taichung.gov.tw/16103/16153/16313/16343/47934/post" target="_blank" rel="noopener noreferrer">台中市政府經濟發展局「第二市場」景點頁</a>。
+                    </figcaption>
+                </figure>
+            </section>
+
+            <hr>
+            <section id="video">
+                <h2>五、影音報導</h2>
+                <p>透過下方影片認識第二市場，再比較影片畫面與本文介紹的景點。</p>
+                <figure>
+                    <iframe
+                        class="video-frame"
+                        width="560"
+                        height="315"
+                        src="https://www.youtube.com/embed/YHLyQrcTozI"
+                        title="第二市場介紹短片"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                    <figcaption>影片：台中第二市場介紹影片。</figcaption>
+                </figure>
+                <p><a href="https://www.youtube.com/watch?v=YHLyQrcTozI" target="_blank" rel="noopener noreferrer">在 YouTube 觀看第二市場介紹影片（另開分頁）</a></p>
+                <p><small>影片為外部作者發布的歷史介紹，現場狀況請以最新官方資訊為準。</small></p>
+            </section>
+
+            <hr>
+            <!-- 位置地圖專區 -->
+            <section id="map">
+                <h2>六、位置地圖：找到第二市場</h2>
+                <p>第二市場位於台中市中區三民路與台灣大道交叉口。下方地圖標示本文介紹的市場位置，方便讀者對照景點與周邊街道。</p>
+                <iframe
+                    class="map-frame"
+                    src="https://maps.google.com/maps?q=24.1436,120.6796&amp;z=16&amp;output=embed"
+                    width="480"
+                    height="360"
+                    title="台中第二市場位置 Google 地圖"
+                    loading="lazy"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+                <p><a href="https://www.google.com/maps/search/?api=1&amp;query=%E5%8F%B0%E4%B8%AD%E7%AC%AC%E4%BA%8C%E5%B8%82%E5%A0%B4" target="_blank" rel="noopener noreferrer">在 Google 地圖開啟台中第二市場（另開分頁）</a></p>
+                <p><small>位置查詢由 Google 地圖提供；抵達後請依現場導覽牌與店家營業狀況為主。</small></p>
+            </section>
+
+            <hr>
+            <!-- 走讀小提醒 -->
+            <aside id="tips" aria-labelledby="tips-title">
+                <h2 id="tips-title">走讀小提醒</h2>
+                <details open>
+                    <summary>參訪第二市場與品嚐美食時，記得這三件事</summary>
+                    <ul>
+                        <li>部分人氣美食（如山河魯肉飯）營業至下午三點左右，建議提早前往。</li>
+                        <li>市場內通道交錯，拍照或品嚐小吃時請留意人潮與腳步安全。</li>
+                        <li>保持環境整潔，愛護百年市場的歷史建築與屋頂風貌。</li>
+                    </ul>
+                </details>
+            </aside>
+
+            <hr>
+            <section id="sources">
+                <h2>七、資料來源</h2>
+                <p>本報導依下列資料整理，散步順序與觀察建議由示範作者規劃。</p>
+                <ul>
+                    <li><a href="https://travel.taichung.gov.tw/zh-tw/attractions/intro/70" target="_blank" rel="noopener noreferrer">臺中觀光旅遊網</a></li>
+                    <li><a href="https://www.economic.taichung.gov.tw/16103/16153/16313/16343/47934/post" target="_blank" rel="noopener noreferrer">台中市政府經濟發展局：第二市場</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=YHLyQrcTozI" target="_blank" rel="noopener noreferrer">YouTube：台中第二市場介紹影片</a></li>
+                </ul>
+                <p><small>資料整理日期：2026 年 10 月 15 日。</small></p>
+            </section>
+        </article>
+    </main>
+
+    <hr>
+    <footer>
+        <p><strong>第六次 HTML 與 CSS 作業範例｜台中第二市場報導</strong></p>
+        <p><small>作者：陳佳儀 · 更新日期：2026 年 10 月 15 日</small></p>
+        <p><small>文字依來源整理；照片與影片權利屬原作者。本文為課堂示範。</small></p>
+        <p><a href="#top">回到頁首</a></p>
+    </footer>
+</body>
+</html>
